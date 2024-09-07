@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+  <span class="title">Rick's Web Developer tools</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/totp">Time based OTP</a>
+      <a mat-list-item routerLink="/about">About</a>
+      <!-- Add more menu items here -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer class="app-footer">
+  <p>&copy; 2023 <a href="https://www.linkedin.com/in/peironcely" target="_blank">Rick Peironcely</a>. View the code <a href="https://github.com/ricard2k/web-developer-tools-ui" target="_blank">here</a>.</p>
+</footer> 

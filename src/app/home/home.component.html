@@ -1,0 +1,15 @@
+<div class="home-container">
+    <h2>Services</h2>
+    <div class="home-row">
+      <ul>
+        <!-- Combine all menu items into one list -->
+        <li *ngFor="let item of serviceItems">
+          <a [routerLink]="item.toBeImplemented?'':item.path">
+            <fa-icon [icon]="item.icon" class='item-icon'></fa-icon>
+            {{ item.label }}
+            <span *ngIf="item.toBeImplemented" class="soon-label">soon</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
