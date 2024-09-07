@@ -1,0 +1,59 @@
+<div class="totp-container">
+  <h2>Generate a Time-based One-Time Password (TOTP)</h2>
+  <p>
+    TOTP is an algorithm that computes a one-time password from a shared secret key and the current time.
+    The current time is divided by a predefined time step (usually 30 seconds) and the resulting integer value is used as an input to the HMAC-SHA-1 algorithm.
+    The output of the HMAC-SHA-1 algorithm is then truncated to a predefined number of digits to obtain the one-time password.
+  </p>
+
+
+  <form [formGroup]="totpForm" class="totp-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Shared secret</mat-label>
+      <input matInput formControlName="sharedSecret" placeholder="Enter shared secret" required>
+      <mat-error *ngIf="totpForm.get('sharedSecret')!.hasError('invalidSharedSecret')">
+        Key contains invalid characters
+      </mat-error>
+      <mat-error *ngIf="totpForm.get('sharedSecret')!.hasError('required')">
+        Key is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Number of digits</mat-label>
+      <input matInput type="number" formControlName="digits" placeholder="Enter number of digits" required min="2" max="9" step="1">
+      <mat-error *ngIf="totpForm.get('digits')!.hasError('required')">
+        Number of digits is required
+      </mat-error>
+      <mat-error *ngIf="totpForm.get('digits')!.hasError('min')">
+        Number of digits must be at least 1
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Time Step</mat-label>
+      <input matInput type="number" formControlName="timeStep" placeholder="Enter time step" required>
+      <mat-error *ngIf="totpForm.get('timeStep')!.hasError('required')">
+        Time step is required
+      </mat-error>
+      <mat-error *ngIf="totpForm.get('timeStep')!.hasError('min')">
+        Time step must be at least 1
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div class="totp-result">
+    <span>{{ otp }}</span>
+    <mat-icon (click)="copyToClipboard(otp)">content_copy</mat-icon>
+  </div>
+  <div class="totp-result">
+    <span>Remaining time {{ remainingTime }}</span>
+  </div>
+
+  <div class="totp-url">
+    <span>Use this URL to reference this TOTP: </span>
+    <a href="{{totpUrl}}">{{ totpUrl }}</a>
+    <mat-icon (click)="copyToClipboard(totpUrl)">content_copy</mat-icon>
+  </div>
+
+</div>
