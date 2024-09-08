@@ -1,5 +1,7 @@
 # Rick's web developer tools
 
+Use it at https://rick.tools
+
 This site is a curated collection of essential tools designed for web developers, featuring a webhook server, a Time based One Time Password generator, a DNS looking glass, and more. Born out of the need for quick access to everyday utilities, it offers streamlined URLs to support application developing and testing in large-scale enterprise environments." 
 
 ## Who am I? 
