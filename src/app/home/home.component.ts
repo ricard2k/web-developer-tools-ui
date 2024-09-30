@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClockRotateLeft, faArrowsTurnToDots, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faClockRotateLeft, faArrowsTurnToDots, faEye, faCode } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -23,6 +23,7 @@ export class HomeComponent {
     { label: 'Time based One Time Password', icon: faClockRotateLeft, path: '/totp' },
     { label: 'Web hooks', icon: faArrowsTurnToDots, path: '/wh', toBeImplemented: true },
     { label: 'Request looking glass', icon: faEye, path: '/rlg', toBeImplemented: true },
+    { label: 'Binary-to-text encoding', icon: faCode, path: '/btoa'},
   ];
 
 }
