@@ -1,0 +1,26 @@
+<div class="webhooks-container">
+    <h2>Webhooks</h2>
+    <p>
+        A webhook is a method of augmenting the behavior of an application with custom callbacks executed server to
+        server.
+        Webhooks are typically used to provide
+        real-time data updates and notifications. When an event occurs in an external service, it triggers the webhook,
+        which
+        sends an HTTP request to the specified application with the event data.
+    </p>
+    <p>
+        Unlike redirections, webhooks operate asynchronously and are triggered by events, redirections are synchronous
+        and occur as part of the user's
+        navigation flow. Having out-of-band communication makes web applications more secure by decoupling the event
+        processing from the user web flow flow. This reduces the risk of exposing sensitive data or logic to the
+        client side and allows for more controlled and secure handling of events.
+    </p>
+    <div class="webhooks-result">
+        <span>Your webhook URL: <a href="https://api.rick.tools/{{ webhookId }}">https://api.rick.tools/{{ webhookId
+                }}</a><mat-icon
+                (click)="copyToClipboard('https://api.rick.tools/' + webhookId)">content_copy</mat-icon></span>
+    </div>
+    <div *ngFor="let webhook of webhooks" class="webhooks-result">
+        <span>{{ webhook }}</span>
+    </div>
+</div>

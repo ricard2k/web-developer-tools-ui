@@ -1,0 +1,11 @@
+{
+    "/storage": {
+        "target": "https://storage.googleapis.com/webhooks.rick.tools",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/storage": ""
+        }
+    }
+}
