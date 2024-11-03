@@ -4,6 +4,8 @@ import { WebhooksService } from './webhooks.service';
 import { CommonModule } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
 import { MatIcon } from '@angular/material/icon';
+import {WebhookElement, WebhookFilenamePipe } from './webhook-filename.pipe';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-webhooks',
@@ -11,17 +13,20 @@ import { MatIcon } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatIcon,
+    WebhookFilenamePipe
   ],
   templateUrl: './webhooks.component.html',
-  styleUrl: './webhooks.component.css'
+  styleUrl: './webhooks.component.scss'
 })
 export class WebhooksComponent {
   webhooks: string[] = [];
   webhookId: string = '';
+  webhookLocation: string = '';
+  webhookViewLocation: string = '';
 
   constructor(
     private webhooksService: WebhooksService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +44,8 @@ export class WebhooksComponent {
       } else {
         this.webhookId = uuidv4();
       }
+      this.webhookLocation = 'https://api.rick.tools/' + this.webhookId;
+      this.webhookViewLocation = window.location.origin + '/#/wh/' + this.webhookId ;
     })
   }
 
@@ -48,5 +55,19 @@ export class WebhooksComponent {
     }).catch(err => {
       console.error('Could not copy text: ', err);
     });
+  }
+
+  loadDetails(webhook: WebhookElement): void {
+    webhook.showDetails = !webhook.showDetails;
+    if (!webhook.details) {   
+      this.webhooksService.getWebhook(webhook.filename).subscribe({
+        next: response => {
+          webhook.details = response;
+        },
+        error: error => {
+          return throwError(() => new Error(`Failed to fetch webhook details: ${error.message}`));
+        }
+      });
+    }
   }
 }

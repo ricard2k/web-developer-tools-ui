@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './btoa.component.html',
-  styleUrl: './btoa.component.css'
+  styleUrl: './btoa.component.scss'
 })
 export class BtoaComponent {
 

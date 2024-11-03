@@ -27,8 +27,8 @@ export class WebhooksService {
     );
   }
 
-  getWebhook(webhookId: string): Observable<any> {
-    const url = `${environment.webhooksBaseUrl}/${webhookId}`;
+  getWebhook(webhookFilename: string): Observable<any> {
+    const url = `${environment.webhooksBaseUrl}/${webhookFilename}`;
     return this.http.get<any>(url).pipe(
       catchError(error => {
         return throwError(() => new Error(`Failed to fetch webhook: ${error.message}`));

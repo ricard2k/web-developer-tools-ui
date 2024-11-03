@@ -27,8 +27,6 @@
 }
 
 .home-row a {
-  text-decoration: none;
-  color: #1f8eca;
   display: flex;
   align-items: center;
 }
@@ -36,10 +34,6 @@
 .home-row a i {
   margin-right: 10px;
   font-size: 20px; /* Adjust icon size */
-}
-
-.home-row a:hover {
-  color: #00a3ff;
 }
 
 .item-icon {

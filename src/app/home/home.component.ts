@@ -15,15 +15,15 @@ import { faClockRotateLeft, faArrowsTurnToDots, faEye, faCode } from '@fortaweso
     FontAwesomeModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
   serviceItems = [
-    { label: 'Time based One Time Password', icon: faClockRotateLeft, path: '/totp' },
-    { label: 'Web hooks', icon: faArrowsTurnToDots, path: '/wh', toBeImplemented: true },
-    { label: 'Request looking glass', icon: faEye, path: '/rlg', toBeImplemented: true },
     { label: 'Binary-to-text encoding', icon: faCode, path: '/btoa'},
+    { label: 'Request looking glass', icon: faEye, path: '/rlg', toBeImplemented: true },
+    { label: 'Time based One Time Password', icon: faClockRotateLeft, path: '/totp' },
+    { label: 'Web hooks', icon: faArrowsTurnToDots, path: '/wh' },
   ];
 
 }
