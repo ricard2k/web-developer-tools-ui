@@ -38,18 +38,22 @@
             <div *ngIf="webhook.showDetails" class="webhook-detail-panel"> 
                 <table> 
                     <tbody>
+                        <tr>
+                            <td>URL:</td>
+                            <td>{{ webhook.details?.originalUrl }}</td>
+                        </tr>
                         <tr *ngIf="webhook.details?.query">
                             <td [colSpan]="2" class="webhook-table-head">Query parameters</td>
                         </tr>
                         <tr *ngFor="let duple of webhook.details?.query | keyvalue">
-                            <td>{{ duple.key }}</td>
+                            <td>{{ duple.key }}:</td>
                             <td>{{ duple.value }}</td>
                         </tr>
                         <tr *ngIf="webhook.details?.headers">
                             <td [colSpan]="2" class="webhook-table-head">Headers</td>
                         </tr>
                         <tr *ngFor="let duple of webhook.details?.headers | keyvalue">
-                            <td>{{ duple.key }}</td>
+                            <td>{{ duple.key }}:</td>
                             <td>{{ duple.value }}</td>
                         </tr>
                         <tr *ngIf="webhook.details?.body">
