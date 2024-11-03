@@ -71,11 +71,18 @@
 }
 
 table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  font-size: 0.8em;
   border-style: solid;
-  border-color: mat.get-theme-color(theme.$rick-tools-dark-theme, primary, 100);
+  border-color: mat.get-theme-color(theme.$rick-tools-dark-theme, primary, 10);
   border-width: 0.5px;
 }
 
 .webhook-table-head {
-  background-color: mat.get-theme-color( theme.$rick-tools-dark-theme, surface-container);
+  font-weight: bold;
+  background-color: mat.get-theme-color( theme.$rick-tools-dark-theme, surface-container-high);
 }

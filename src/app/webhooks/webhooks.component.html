@@ -20,7 +20,7 @@
                  (click)="copyToClipboard(webhookLocation)">
                  <mat-icon>content_copy</mat-icon></button>
             </p>
-        <p>Use this URL to reference this Webhook: <a href="{{ webhookViewLocation }}">{{ webhookViewLocation
+        <p>Use this URL to show the activity: <a href="{{ webhookViewLocation }}">{{ webhookViewLocation
             }}</a> <button mat-icon-button tooltip="Copy to clipboard" tooltipPosition="above"
              (click)="copyToClipboard(webhookViewLocation)">
              <mat-icon>content_copy</mat-icon></button>
@@ -38,22 +38,22 @@
             <div *ngIf="webhook.showDetails" class="webhook-detail-panel"> 
                 <table> 
                     <tbody>
-                        <tr *ngIf="webhook.details?.query" style="webhook-table-head">
-                            <td [colSpan]="2">Query parameters</td>
+                        <tr *ngIf="webhook.details?.query">
+                            <td [colSpan]="2" class="webhook-table-head">Query parameters</td>
                         </tr>
                         <tr *ngFor="let duple of webhook.details?.query | keyvalue">
                             <td>{{ duple.key }}</td>
                             <td>{{ duple.value }}</td>
                         </tr>
-                        <tr *ngIf="webhook.details?.headers" style="webhook-table-head">
-                            <td [colSpan]="2">Headers</td>
+                        <tr *ngIf="webhook.details?.headers">
+                            <td [colSpan]="2" class="webhook-table-head">Headers</td>
                         </tr>
                         <tr *ngFor="let duple of webhook.details?.headers | keyvalue">
                             <td>{{ duple.key }}</td>
                             <td>{{ duple.value }}</td>
                         </tr>
-                        <tr *ngIf="webhook.details?.body" style="webhook-table-head">
-                            <td [colSpan]="2">Body</td>
+                        <tr *ngIf="webhook.details?.body">
+                            <td [colSpan]="2" class="webhook-table-head">Body</td>
                         </tr>
                         <tr *ngIf="webhook.details?.body">
                             <td [colSpan]="2">{{webhook.details?.body | json}}</td>
