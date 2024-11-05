@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../../styles/themes/rick-tools' as theme;
+@use '../../styles/mixins' as mixins;
+
+.looking-glass-container {
+  padding: 15px;
+}

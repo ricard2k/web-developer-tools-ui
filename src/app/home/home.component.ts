@@ -23,7 +23,7 @@ export class HomeComponent {
     { label: 'Binary-to-text encoding', icon: faCode, path: '/btoa'},
     { label: 'Request looking glass', icon: faEye, path: '/rlg', toBeImplemented: true },
     { label: 'Time based One Time Password', icon: faClockRotateLeft, path: '/totp' },
-    { label: 'Web hooks', icon: faArrowsTurnToDots, path: '/wh' },
+    { label: 'Web hooks', icon: faArrowsTurnToDots, path: '/wh', toBeImplemented: true },
   ];
 
 }
