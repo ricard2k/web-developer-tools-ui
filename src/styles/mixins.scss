@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin container-lowest-theme($theme) {
+
+    margin-top: 20px + (4px * mat.get-theme-density($theme));
+
+    @if mat.get-theme-type($theme)==dark {
+      color: mat.get-theme-color($theme, primary, 100);
+    }
+
+    @else {
+      color: mat.get-theme-color($theme, primary, 0);
+    }
+
+    background-color: mat.get-theme-color($theme, surface-container-lowest);
+    padding: 10px + (2px * mat.get-theme-density($theme));
+    border-radius: 5px;
+    border-style: none;
+}

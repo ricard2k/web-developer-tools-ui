@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+$rick-tools-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$magenta-palette,
+    tertiary: mat.$violet-palette,
+  ),
+  typography: (
+    brand-family: 'Roboto, "Helvetica Neue", sans-serif',
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+$rick-tools-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$violet-palette,
+    tertiary: mat.$blue-palette,
+    ),
+    typography: (
+      brand-family: 'Roboto, "Helvetica Neue", sans-serif',
+    ),
+    density: (
+      scale: -1
+    )
+));
+
+.dark-theme {
+  @include mat.all-component-themes($rick-tools-dark-theme);
+}
+
+.dark-theme a {
+  color: #1f8eca;
+  text-decoration: none;
+}
+
+.dark-theme a:hover {
+  color: #00a3ff;
+}
+
+.dark-theme h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.light-theme {
+  @include mat.all-component-themes($rick-tools-light-theme);
+}

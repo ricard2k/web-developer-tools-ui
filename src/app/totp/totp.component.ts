@@ -24,7 +24,7 @@ import { MatIcon } from '@angular/material/icon';
     MatIcon
   ],
   templateUrl: './totp.component.html',
-  styleUrl: './totp.component.css',
+  styleUrl: './totp.component.scss',
   providers: [ 
     TotpService, 
     SecondClockService 

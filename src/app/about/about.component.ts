@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports:    [ MarkdownModule ],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css',
+  styleUrl: './about.component.scss',
 })
 export class AboutComponent implements OnInit {
 

@@ -1,0 +1,71 @@
+<div class="webhooks-container">
+    <h2>Webhooks</h2>
+    <p>
+        A webhook is a custom callback executed server to server typically used to provide real-time data updates 
+        and notifications between applications. When an event occurs in an external application, it triggers the 
+        webhook, which sends an HTTP request to the specified application with the event data.
+    </p>
+    <p>
+        Unlike redirections, webhooks operate asynchronously and are triggered by events, redirections are synchronous
+        and occur as part of the user's navigation flow.
+    </p>
+    <p>
+        Having out-of-band communication makes web applications more secure by decoupling the event
+        processing from the user web flow flow. This reduces the risk of exposing sensitive data or logic to the
+        client side and allows for more controlled and secure handling of events.
+    </p>
+    <div class="webhooks-result">
+        <p>Your webhook URL: <a target="_blank" href="{{ webhookLocation }}">{{ webhookLocation
+                }}</a> <button mat-icon-button tooltip="Copy to clipboard" tooltipPosition="above"
+                 (click)="copyToClipboard(webhookLocation)">
+                 <mat-icon>content_copy</mat-icon></button>
+            </p>
+        <p>Use this URL to show the activity: <a href="{{ webhookViewLocation }}">{{ webhookViewLocation
+            }}</a> <button mat-icon-button tooltip="Copy to clipboard" tooltipPosition="above"
+             (click)="copyToClipboard(webhookViewLocation)">
+             <mat-icon>content_copy</mat-icon></button>
+        </p>
+    </div>
+    <div *ngFor="let webhook of webhooks | webhookFilename" class="webhooks-result">
+        <div class="webhook-list-item" *ngIf="!webhook.error">
+            <div class="webhook-method {{webhook.method}}">{{ webhook.method }}</div>
+            <div class="webhook-time">{{ webhook.time }}</div>
+            <div class="webhook-client">Client IP: {{ webhook.ip }}</div>
+            <div class="webhook-show-details"><button mat-icon-button (click)="loadDetails(webhook)">
+                <mat-icon>content_copy</mat-icon>
+                {{webhook.showDetails?'Hide details':'Show details'}}
+            </button></div>
+            <div *ngIf="webhook.showDetails" class="webhook-detail-panel"> 
+                <table> 
+                    <tbody>
+                        <tr>
+                            <td>URL:</td>
+                            <td>{{ webhook.details?.originalUrl }}</td>
+                        </tr>
+                        <tr *ngIf="webhook.details?.query">
+                            <td [colSpan]="2" class="webhook-table-head">Query parameters</td>
+                        </tr>
+                        <tr *ngFor="let duple of webhook.details?.query | keyvalue">
+                            <td>{{ duple.key }}:</td>
+                            <td>{{ duple.value }}</td>
+                        </tr>
+                        <tr *ngIf="webhook.details?.headers">
+                            <td [colSpan]="2" class="webhook-table-head">Headers</td>
+                        </tr>
+                        <tr *ngFor="let duple of webhook.details?.headers | keyvalue">
+                            <td>{{ duple.key }}:</td>
+                            <td>{{ duple.value }}</td>
+                        </tr>
+                        <tr *ngIf="webhook.details?.body">
+                            <td [colSpan]="2" class="webhook-table-head">Body</td>
+                        </tr>
+                        <tr *ngIf="webhook.details?.body">
+                            <td [colSpan]="2">{{webhook.details?.body | json}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="webhook-list-item-error" *ngIf="webhook.error">{{ webhook.error }}</div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="looking-glass-container">
+    <h2>Looking glass requests</h2>
+    <p>
+        With this tool you can see the information your browser are sending for a request, 
+        usefull to see and understand the headers, request parameters and other information 
+        that are being sent to the server.
+    </p>
+    <p>
+        Ypu also can use it to simulate a system redirecting to other page. In this case you can include a final
+        part in the URL: /SUCCESS, to indicate the system that the operation was successful, or /ERROR, to indicate that
+        the operation failed. Also you can use /PAID to indicate that a payment was made.
+        <a href="https://rick.tools/#/lg">https://rick.tools/#/lg/SUCCESS|ERROR|PAID</a>
+    </p>
+    <div *ngIf="imageName" class="looking-glass-image">
+        <img src="{{imageName}}" alt="{{intent}}">
+    </div>
+</div>

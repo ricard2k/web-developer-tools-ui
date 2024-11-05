@@ -22,7 +22,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
     MatListItem,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'web-developer-tools-ui';
