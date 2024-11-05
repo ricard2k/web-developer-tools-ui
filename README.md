@@ -6,7 +6,7 @@ This site is a curated collection of essential tools designed for web developers
 
 ## Who am I? 
 
-I'm a millenial working in big enterprise tech projects, electric engineer by education and developer by experience. 
+I'm a generation X guy working in big enterprise tech projects, electric engineer by education and developer by experience. 
 
 I've started doing applications in clipper for family and friends when I was 13. And got my first opportunity in the enerprise with Visual Basic accesing databases when I was 16. My first experience with Java was the version 1.1 (time flyes), and I've felt in love with Unix when I had the oportunity to use this big systems.
 
